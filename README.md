@@ -1,8 +1,6 @@
 # Nature-Cut-Out
 
-This is the python implementation of cutting out a nature contour aroung hu
-
-man body.
+This is the python implementation of cutting out a nature contour aroung human body.
 
 ## Result
 
@@ -32,20 +30,20 @@ I've tested on several images and in most cases the results work pretty well.
 ## Setup
 
 Recommended running environment:
-..* Mac OS X El Capitan (version 10.11.6) 
-..* Python 3.6.1
+* Mac OS X El Capitan (version 10.11.6) 
+* Python 3.6.1
 
 Library:
-..* OpenCV 3.3.0-rc
-..* Scipy 0.19.1
-..* Shapely 1.5.17
-..* math
-..* Numpy 1.13.1
-..* Bezier
+* OpenCV 3.3.0-rc
+* Scipy 0.19.1
+* Shapely 1.5.17
+* math
+* Numpy 1.13.1
+* Bezier
 
 Optional library:
-..* descartes
-..* matplotlib
+* descartes
+* matplotlib
 
 Using pip to install all these library would be recommended:
 ```
