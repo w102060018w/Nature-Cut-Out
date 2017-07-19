@@ -85,3 +85,11 @@ save(fname,'preds_2d');
 which 'preds_2d' is the parameter's name.
 
 Put both your .mat files and images in the input folder, and make sure the format and the name of files are the same as mine in the input folder. 
+
+## Algorithm
+The whole process could be divided into the following process:
+1. First using 2D human pose estimation to get the landmarks of a human body.
+2. Base on 2D landmarks, calculate those possible contour points.
+3. Apply [alpha shape](https://en.wikipedia.org/wiki/Alpha_shape) to find out those key points which will contribute to build the contour.
+4. Interpolating between key points and apply 4-point [Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_curve) to reconstruct the nature-cut-out.
+
