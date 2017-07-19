@@ -166,7 +166,8 @@ for k, file_id in enumerate(file_id_list):
 	triangles, edge_points = alpha_shape(extendPt, alpha)
 
 	## shoaw result of Delauny-triangular
-	lines = LineCollection(edge_points,linewidths=(0.5, 1, 1.5, 2))
+	# lines = LineCollection(edge_points,linewidths=(0.5, 1, 1.5, 2))
+	lines = LineCollection(edge_points)
 	plt.figure()
 	plt.title('Alpha=2.0 Delaunay triangulation')
 	plt.plot(extendPt[:,0], extendPt[:,1], 'o', hold=1, color='#f16824')
