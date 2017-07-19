@@ -26,7 +26,7 @@ import matplotlib.pyplot as plt
 #import cv2
 
 
-def add_edge(edges, edge_points, coords, i, j):
+def add_edge(edge_points, coords, i, j):
     """
     Add a line between the i-th and j-th points,
     if not in the list already
@@ -75,10 +75,10 @@ def alpha_shape(points,alpha):
     #    print('val = ',circum_r)
     #    print('limit = ',1.0/alpha)
 #        
-        if circum_r < 1.0/alpha:
-            add_edge(edges, edge_points, points, ia, ib)
-            add_edge(edges, edge_points, points, ib, ic)
-            add_edge(edges, edge_points, points, ic, ia)
+        if circum_r < 1.0/alpha: 
+            add_edge(edge_points, points, ia, ib)
+            add_edge(edge_points, points, ib, ic)
+            add_edge(edge_points, points, ic, ia)
             
 #    print('ave = ',sum(circum_lst)/len(circum_lst))
             

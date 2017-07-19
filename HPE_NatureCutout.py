@@ -29,7 +29,7 @@ from Alpha_shape import alpha_shape
 # read image
 fdir = './input/'
 # file_id = '01'
-file_id_list = list(range(1,28))
+file_id_list = list(range(23,24))
 file_id_list = [str(x) for x in file_id_list]
 
 for k, file_id in enumerate(file_id_list):
@@ -166,23 +166,23 @@ for k, file_id in enumerate(file_id_list):
 	triangles, edge_points = alpha_shape(extendPt, alpha)
 
 	## shoaw result of Delauny-triangular
-	# lines = LineCollection(edge_points,linewidths=(0.5, 1, 1.5, 2))
-	# plt.figure()
-	# plt.title('Alpha=2.0 Delaunay triangulation')
-	# plt.plot(extendPt[:,0], extendPt[:,1], 'o', hold=1, color='#f16824')
-	# plt.gca().add_collection(lines)
+	lines = LineCollection(edge_points,linewidths=(0.5, 1, 1.5, 2))
+	plt.figure()
+	plt.title('Alpha=2.0 Delaunay triangulation')
+	plt.plot(extendPt[:,0], extendPt[:,1], 'o', hold=1, color='#f16824')
+	plt.gca().add_collection(lines)
 
-	# ## show result of connected contour
-	# plt.figure()
-	# plt.title("Alpha=2.0 Hull")
-	# plt.gca().add_patch(PolygonPatch(cascaded_union(triangles), alpha=0.5))
-	# plt.gca().autoscale(tight=False)
-	# plt.plot(extendPt[:,0], extendPt[:,1], 'o', hold=1)
-	# plt.show()
+	## show result of connected contour
+	plt.figure()
+	plt.title("Alpha=2.0 Hull")
+	plt.gca().add_patch(PolygonPatch(cascaded_union(triangles), alpha=0.5))
+	plt.gca().autoscale(tight=False)
+	plt.plot(extendPt[:,0], extendPt[:,1], 'o', hold=1)
+	plt.show()
 
 	#%%
 	# extract vertices of Polygon
-	ExtPts_x, ExtPts_y = cascaded_union(triangles).exterior.coords.xy
+	ExtPts_x, ExtPts_y = cascaded_union(triangles).exterior.coords.xy #extract these control points from alpha-shape-result
 	ExtPts = []
 	for i in range(len(ExtPts_x)):
 	    ExtPts.append([int(ExtPts_x[i]),int(ExtPts_y[i])])
@@ -234,8 +234,8 @@ for k, file_id in enumerate(file_id_list):
 
 	# draw Bezier Curve Result      
 	BezierCurve = bezier.Curve(np.array(Dense_BezierCurve), degree = 4)
-	# ax = BezierCurve.plot(num_pts=256)
-	# plt.show()
+	ax = BezierCurve.plot(num_pts=256)
+	plt.show()
 
 	s_vals = np.linspace(0.0, 1.0, 100)
 	curve_pts = BezierCurve.evaluate_multi(s_vals)

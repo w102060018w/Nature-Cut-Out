@@ -89,7 +89,7 @@ Put both your .mat files and images in the input folder, and make sure the forma
 ## Algorithm
 The whole process could be divided into the following process:
 
-1. First using 2D human pose estimation to get the landmarks of a human body.
+**1. First using 2D human pose estimation to get the landmarks of a human body.**
 
 Big thanks to the great work done by X. Zhou, M. Zhu, S. Leonardos, K. Daniilidis., Download the code from the [website](https://fling.seas.upenn.edu/~xiaowz/dynamic/wordpress/shapeconvex/).
 	* generate heatmap in advance:
@@ -103,7 +103,7 @@ Big thanks to the great work done by X. Zhou, M. Zhu, S. Leonardos, K. Daniilidi
 	<img src="./images/demo_HPE.png" height="280px">
 	</div>
 
-2. Base on 2D landmarks, calculate those possible contour points.
+**2. Base on 2D landmarks, calculate those possible contour points.**
 
 Base on the vector constructed between 2 landmarks, calculate its norm direction and mark out these points(green points in the concept figure) as the possible contour points.
 The following are the concept figure:
@@ -114,12 +114,26 @@ The following are the concept figure:
 	<img src="./images/HPE_extendPts_result.png" height="240px">
 	</div>
 
-Apply on image would be just like:
+The result on the above example image would be just like:
 	<div align="center">
-	<img src="./images/demo_HPE.png" height="280px">
-	<img src="./images/demo_extendPts.jpg" height="280px">
+	<img src="./images/demo_HPE.png" height="320px">
+	<img src="./images/demo_extendPts.jpg" height="320px">
 	</div>
 
-3. Apply [alpha shape](https://en.wikipedia.org/wiki/Alpha_shape) to find out those key points which will contribute to build the contour.
-4. Interpolating between key points and apply 4-point [Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_curve) to reconstruct the nature-cut-out.
+**3. Apply [alpha shape](https://en.wikipedia.org/wiki/Alpha_shape) to find out those key points which will contribute to build the contour.**
+
+Thanks to the clear tutorial by [Sean Gillies](https://sgillies.net/2012/10/13/the-fading-shape-of-alpha.html) and [KEVIN DWYER](http://blog.thehumangeo.com/2014/05/12/drawing-boundaries-in-python/), my alpha shape function is mainly built on the code shown in the above two links.
+First build [delaunay triangulation](https://en.wikipedia.org/wiki/Delaunay_triangulation) base on [SciPy library](https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.spatial.Delaunay.html), and use alpha shape concept to remain those vetexes whose triangle's radius of the circumcircle is small enough. Finally we can extract all these points as the control points to build a smooth contour later on.
+
+The following pictures are the Result from step 2, Delaunay-triangle, Alpha-shape and the exterior points of the alpha shape respectively.
+
+<div align="center">
+<img src="./images/demo_extendPts.png" height="240px">
+<img src="./images/demo_tri.png" height="240px">
+<img src="./images/demo_AlphaShape.png" height="240px">
+<img src="./images/demo_AlphaShpae_Image.jpg" height="240px">
+</div>
+
+
+**4. Interpolating between key points and apply 4-point [Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_curve) to reconstruct the nature-cut-out.**
 
