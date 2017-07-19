@@ -129,10 +129,10 @@ The whole concept is first build [delaunay triangulation](https://en.wikipedia.o
 The following pictures are the Result from step 2, Delaunay-triangle, Alpha-shape and the exterior points of the alpha shape respectively.
 
 <div align="center">
-<img src="./images/demo_extendPts.jpg" height="240px">
-<img src="./images/demo_tri.png" height="240px">
-<img src="./images/demo_AlphaShape.png" height="240px">
-<img src="./images/demo_AlphaShpae_Image.jpg" height="240px">
+<img src="./images/demo_extendPts.jpg" height="260px">
+<img src="./images/demo_tri.png" height="260px">
+<img src="./images/demo_AlphaShape.png" height="260px">
+<img src="./images/demo_AlphaShpae_Image.jpg" height="260px">
 </div>
 
 
