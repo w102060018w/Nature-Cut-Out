@@ -52,13 +52,13 @@ pip install the-lib-you-want-to-install
 Also, if you stuck in some problems when installing OpenCV with Python bindings, I will recommend following [this tutorial](http://www.pyimagesearch.com/2016/12/05/macos-install-opencv-3-and-python-3-5/) written by [Adrian Rosebrock](http://www.pyimagesearch.com/author/adrian/).
 
 ## Usage
-**Basic usage**:
+#### Basic usage:
 ```
 python HPE_NatureCutout.py
 ```
 It will run 27 images in the **./input** folder at one time, and show an output image once at a time, press 'esc' to see next output image.
 
-**output**:
+#### Output:
 
 Output will all be saved to the **./New_Output** folder. Each input will generate 3 outputs, including the result simple base on Human-Pose-Estimation, the result after applying Alpha-Shape and the result after using 4-point Bézier curve.
 
@@ -74,7 +74,7 @@ Output will all be saved to the **./New_Output** folder. Each input will generat
 </div>
 
 
-**Run on your own images**:
+#### Run on your own images:
 
 Please first go to [this website](https://fling.seas.upenn.edu/~xiaowz/dynamic/wordpress/shapeconvex/) and scroll down to the bottom to download the matlab code on constructing 2D and 3D human pose. Save the 2D human pose result as the **.mat** file:
 ```
