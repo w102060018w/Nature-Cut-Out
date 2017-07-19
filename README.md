@@ -91,7 +91,6 @@ The whole process could be divided into the following process:
 
 1. First using 2D human pose estimation to get the landmarks of a human body.
 
-* generate human pose landmarks:
 Big thanks to the great work done by X. Zhou, M. Zhu, S. Leonardos, K. Daniilidis., Download the code from the [website](https://fling.seas.upenn.edu/~xiaowz/dynamic/wordpress/shapeconvex/).
 	* generate heatmap in advance:
 	```
@@ -101,10 +100,26 @@ Big thanks to the great work done by X. Zhou, M. Zhu, S. Leonardos, K. Daniilidi
 	<div align="center">
 	<img src="./images/demoimg.jpg" height="280px">
 	<img src="./images/heatmap.png" height="280px">
-	<img src="./images/HPE.png" height="280px">
+	<img src="./images/demo_HPE.png" height="280px">
 	</div>
 
 2. Base on 2D landmarks, calculate those possible contour points.
+
+Base on the vector constructed between 2 landmarks, calculate its norm direction and mark out these points(green points in the concept figure) as the possible contour points.
+The following are the concept figure:
+	<div align="center">
+	<img src="./images/HPE_.png" height="280px">
+	<img src="./images/HPE_extendPts_dir.png" height="280px">
+	<img src="./images/HPE_extendPts.png" height="280px">
+	<img src="./images/HPE_extendPts_result.png" height="280px">
+	</div>
+
+Apply on image would be just like:
+	<div align="center">
+	<img src="./images/demo_HPE.png" height="280px">
+	<img src="./images/demo_extendPts.jpg" height="280px">
+	</div>
+
 3. Apply [alpha shape](https://en.wikipedia.org/wiki/Alpha_shape) to find out those key points which will contribute to build the contour.
 4. Interpolating between key points and apply 4-point [Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_curve) to reconstruct the nature-cut-out.
 
