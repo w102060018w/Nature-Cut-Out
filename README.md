@@ -7,24 +7,24 @@ This is the python implementation of cutting out a nature contour aroung human b
 I've tested on several images and in most cases the results work pretty well.
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/master/input/testImg8.jpg" height="160px">
-<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/master/output/8_Bezier_modified_contour.jpg" height="160px">
-<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/master/input/testImg11.jpg" height="160px">
-<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/master/output/11_Bezier_modified_contour.jpg" height="160px">
+<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/blob/master/input/testImg8.jpg" height="160px">
+<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/blob/master/output/8_Bezier_modified_contour.jpg" height="160px">
+<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/blob/master/input/testImg11.jpg" height="160px">
+<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/blob/master/output/11_Bezier_modified_contour.jpg" height="160px">
 </div>
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/master/input/testImg13.jpg" height="160px">
-<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/master/output/13_Bezier_modified_contour.jpg" height="160px">
-<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/master/input/testImg19.jpg" height="160px">
-<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/master/output/19_Bezier_modified_contour.jpg" height="160px">
+<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/blob/master/input/testImg13.jpg" height="160px">
+<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/blob/master/output/13_Bezier_modified_contour.jpg" height="160px">
+<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/blob/master/input/testImg19.jpg" height="160px">
+<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/blob/master/output/19_Bezier_modified_contour.jpg" height="160px">
 </div>
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/master/input/testImg23.jpg" height="160px">
-<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/master/output/23_Bezier_modified_contour.jpg" height="160px">
-<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/master/input/testImg9.jpg" height="160px">
-<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/master/output/9_Bezier_modified_contour.jpg" height="160px">
+<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/blob/master/input/testImg23.jpg" height="160px">
+<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/blob/master/output/23_Bezier_modified_contour.jpg" height="160px">
+<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/blob/master/input/testImg9.jpg" height="160px">
+<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/blob/master/output/9_Bezier_modified_contour.jpg" height="160px">
 </div>
 
 ## Setup
@@ -63,14 +63,14 @@ It will run 27 images in the ./input/ folder at one time, and show an output ima
 Output will all be saved to the ./New_Output/ folder. Each input will generate 3 outputs, including the result simple base on Human-Pose-Estimation, the result after applying Alpha-Shape and the result after using 4-point Bézier curve.
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/master/input/7_Base_On_HPE.jpg" height="160px">
-<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/master/output/7_Alpha_Shape_modified_contour.jpg" height="160px">
-<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/master/input/7_Bezier_modified_contour.jpg" height="160px">
+<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/blob/master/input/7_Base_On_HPE.jpg" height="160px">
+<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/blob/master/output/7_Alpha_Shape_modified_contour.jpg" height="160px">
+<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/blob/master/input/7_Bezier_modified_contour.jpg" height="160px">
 </div>
 <div align="center">
-<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/master/input/22_Base_On_HPE.jpg" height="160px">
-<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/master/output/22_Alpha_Shape_modified_contour.jpg" height="160px">
-<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/master/input/22_Bezier_modified_contour.jpg" height="160px">
+<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/blob/master/input/22_Base_On_HPE.jpg" height="160px">
+<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/blob/master/output/22_Alpha_Shape_modified_contour.jpg" height="160px">
+<img src="https://raw.githubusercontent.com/w102060018w/Nature-Cut-Out/blob/master/input/22_Bezier_modified_contour.jpg" height="160px">
 </div>
 
 **Run on your owm images**:
