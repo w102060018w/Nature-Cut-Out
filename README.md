@@ -68,9 +68,9 @@ Output will all be saved to the ./New_Output/ folder. Each input will generate 3
 <img src="./output/7_Bezier_modified_contour.jpg" height="240px">
 </div>
 <div align="center">
-<img src="./output/22_Base_On_HPE.jpg" height="240px">
-<img src="./output/22_Alpha_Shape_modified_contour.jpg" height="240px">
-<img src="./output/22_Bezier_modified_contour.jpg" height="240px">
+<img src="./output/20_Base_On_HPE.jpg" height="240px">
+<img src="./output/20_Alpha_Shape_modified_contour.jpg" height="240px">
+<img src="./output/20_Bezier_modified_contour.jpg" height="240px">
 </div>
 
 **Run on your owm images**:
