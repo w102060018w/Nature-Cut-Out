@@ -93,17 +93,17 @@ The whole process could be divided into the following process:
 
 Big thanks to the great work done by X. Zhou, M. Zhu, S. Leonardos, K. Daniilidis., Download the code from the [website](https://fling.seas.upenn.edu/~xiaowz/dynamic/wordpress/shapeconvex/).
 
-	* generate heatmap in advance:
-	```
-	th ./pose-hg-demo/run-hg.lua
-	```
-	
-	* run the matlab code to get the 16 landmarks(shown in right most image):
-	<div align="center">
-	<img src="./images/demoimg.jpg" height="280px">
-	<img src="./images/heatmap.png" height="280px">
-	<img src="./images/demo_HPE.png" height="280px">
-	</div>
+* generate heatmap in advance:
+```
+th ./pose-hg-demo/run-hg.lua
+```
+
+* run the matlab code to get the 16 landmarks(shown in right most image):
+<div align="center">
+<img src="./images/demoimg.jpg" height="280px">
+<img src="./images/heatmap.png" height="280px">
+<img src="./images/demo_HPE.png" height="280px">
+</div>
 
 **2. Base on 2D landmarks, calculate those possible contour points.**
 
