@@ -92,10 +92,12 @@ The whole process could be divided into the following process:
 **1. First using 2D human pose estimation to get the landmarks of a human body.**
 
 Big thanks to the great work done by X. Zhou, M. Zhu, S. Leonardos, K. Daniilidis., Download the code from the [website](https://fling.seas.upenn.edu/~xiaowz/dynamic/wordpress/shapeconvex/).
+
 	* generate heatmap in advance:
 	```
 	th ./pose-hg-demo/run-hg.lua
 	```
+	
 	* run the matlab code to get the 16 landmarks(shown in right most image):
 	<div align="center">
 	<img src="./images/demoimg.jpg" height="280px">
