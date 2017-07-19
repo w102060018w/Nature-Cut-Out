@@ -88,7 +88,22 @@ Put both your .mat files and images in the input folder, and make sure the forma
 
 ## Algorithm
 The whole process could be divided into the following process:
+
 1. First using 2D human pose estimation to get the landmarks of a human body.
+
+* generate human pose landmarks:
+Big thanks to the great work done by X. Zhou, M. Zhu, S. Leonardos, K. Daniilidis., Download the code from the [website](https://fling.seas.upenn.edu/~xiaowz/dynamic/wordpress/shapeconvex/).
+	* generate heatmap in advance:
+	```
+	th ./pose-hg-demo/run-hg.lua
+	```
+	* run the matlab code to get the 16 landmarks(shown in right most image):
+	<div align="center">
+	<img src="./images/demoimg.jpg" height="280px">
+	<img src="./images/heatmap.png" height="280px">
+	<img src="./images/HPE.png" height="280px">
+	</div>
+
 2. Base on 2D landmarks, calculate those possible contour points.
 3. Apply [alpha shape](https://en.wikipedia.org/wiki/Alpha_shape) to find out those key points which will contribute to build the contour.
 4. Interpolating between key points and apply 4-point [Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_curve) to reconstruct the nature-cut-out.
