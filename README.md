@@ -108,10 +108,10 @@ Big thanks to the great work done by X. Zhou, M. Zhu, S. Leonardos, K. Daniilidi
 Base on the vector constructed between 2 landmarks, calculate its norm direction and mark out these points(green points in the concept figure) as the possible contour points.
 The following are the concept figure:
 	<div align="center">
-	<img src="./images/HPE_.png" height="280px">
-	<img src="./images/HPE_extendPts_dir.png" height="280px">
-	<img src="./images/HPE_extendPts.png" height="280px">
-	<img src="./images/HPE_extendPts_result.png" height="280px">
+	<img src="./images/HPE_.png" height="240px">
+	<img src="./images/HPE_extendPts_dir.png" height="240px">
+	<img src="./images/HPE_extendPts.png" height="240px">
+	<img src="./images/HPE_extendPts_result.png" height="240px">
 	</div>
 
 Apply on image would be just like:
