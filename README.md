@@ -122,13 +122,14 @@ The result on the above example image would be just like:
 
 **3. Apply [alpha shape](https://en.wikipedia.org/wiki/Alpha_shape) to find out those key points which will contribute to build the contour.**
 
-Thanks to the clear tutorial by [Sean Gillies](https://sgillies.net/2012/10/13/the-fading-shape-of-alpha.html) and [KEVIN DWYER](http://blog.thehumangeo.com/2014/05/12/drawing-boundaries-in-python/), my alpha shape function is mainly built on the code shown in the above two links.
-First build [delaunay triangulation](https://en.wikipedia.org/wiki/Delaunay_triangulation) base on [SciPy library](https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.spatial.Delaunay.html), and use alpha shape concept to remain those vetexes whose triangle's radius of the circumcircle is small enough. Finally we can extract all these points as the control points to build a smooth contour later on.
+Thanks to the clear tutorial by [Sean Gillies](https://sgillies.net/2012/10/13/the-fading-shape-of-alpha.html) and [KEVIN DWYER](http://blog.thehumangeo.com/2014/05/12/drawing-boundaries-in-python/), you can click the links to look into detail. My alpha shape function is mainly built on the code shown in the above two links.
+
+The whole concept is first build [delaunay triangulation](https://en.wikipedia.org/wiki/Delaunay_triangulation) base on [SciPy library](https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.spatial.Delaunay.html), and apply alpha-shape to remain those vetexes whose triangle's radius of the [circumcircle](http://www.mathopenref.com/trianglecircumcircle.html) is small enough. Finally we can extract all these points as the control points to build a smooth contour later on.
 
 The following pictures are the Result from step 2, Delaunay-triangle, Alpha-shape and the exterior points of the alpha shape respectively.
 
 <div align="center">
-<img src="./images/demo_extendPts.png" height="240px">
+<img src="./images/demo_extendPts.jpg" height="240px">
 <img src="./images/demo_tri.png" height="240px">
 <img src="./images/demo_AlphaShape.png" height="240px">
 <img src="./images/demo_AlphaShpae_Image.jpg" height="240px">
