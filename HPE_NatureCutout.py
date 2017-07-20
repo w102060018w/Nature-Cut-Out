@@ -29,7 +29,7 @@ from Alpha_shape import alpha_shape
 # read image
 fdir = './input/'
 # file_id = '01'
-file_id_list = list(range(23,24))
+file_id_list = list(range(1,28))
 file_id_list = [str(x) for x in file_id_list]
 
 for k, file_id in enumerate(file_id_list):
@@ -254,15 +254,15 @@ for k, file_id in enumerate(file_id_list):
 
 	ptS = int(hei/100) # why 100? -> it's just exp. result.
 
-	# img_HPE_extend = img.copy()
-	# cv2.drawContours(img_HPE_extend, np.asarray(extendPt_Draw), -1, (128,255,0), ptS)
-	# img_HPE_extend = cv2.resize(img_HPE_extend,(newWid, newHei), interpolation = cv2.INTER_CUBIC)
-	# cv2.imshow('Base_On_HPE',img_HPE_extend)
+	img_HPE_extend = img.copy()
+	cv2.drawContours(img_HPE_extend, np.asarray(extendPt_Draw), -1, (128,255,0), ptS)
+	img_HPE_extend = cv2.resize(img_HPE_extend,(newWid, newHei), interpolation = cv2.INTER_CUBIC)
+	cv2.imshow('Base_On_HPE',img_HPE_extend)
 
-	# img_AlphaShape = img.copy()
-	# cv2.drawContours(img_AlphaShape, np.asarray(ExtPts_Draw), -1, (128,255,0), ptS)
-	# img_AlphaShape = cv2.resize(img_AlphaShape,(newWid, newHei), interpolation = cv2.INTER_CUBIC)
-	# cv2.imshow('Alpha_Shape_modified_contour',img_AlphaShape)
+	img_AlphaShape = img.copy()
+	cv2.drawContours(img_AlphaShape, np.asarray(ExtPts_Draw), -1, (128,255,0), ptS)
+	img_AlphaShape = cv2.resize(img_AlphaShape,(newWid, newHei), interpolation = cv2.INTER_CUBIC)
+	cv2.imshow('Alpha_Shape_modified_contour',img_AlphaShape)
 
 	# img_dense_bezier = img.copy()
 	# cv2.drawContours(img_dense_bezier, np.asarray(Dense_BezierCurve_draw), -1, (128,255,0), ptS)
@@ -278,12 +278,12 @@ for k, file_id in enumerate(file_id_list):
 	if k==27:
 		cv2.destroyAllWindows()	
 
-	## Save Output Images
-	# outdir = './New_Output/'
-	# if not os.path.exists(outdir):
-	#     os.makedirs(outdir)
-	# cv2.imwrite( outdir+file_id+"_"+"Base_On_HPE.jpg",img_HPE_extend);
-	# cv2.imwrite( outdir+file_id+"_"+"Alpha_Shape_modified_contour.jpg",img_AlphaShape);
-	# cv2.imwrite( outdir+file_id+"_"+"Bezier_modified_contour.jpg",img_NatureCurve);
+	# Save Output Images
+	outdir = './New_Output/'
+	if not os.path.exists(outdir):
+	    os.makedirs(outdir)
+	cv2.imwrite( outdir+file_id+"_"+"Base_On_HPE.jpg",img_HPE_extend);
+	cv2.imwrite( outdir+file_id+"_"+"Alpha_Shape_modified_contour.jpg",img_AlphaShape);
+	cv2.imwrite( outdir+file_id+"_"+"Bezier_modified_contour.jpg",img_NatureCurve);
 
 
