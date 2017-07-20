@@ -111,7 +111,7 @@ th ./pose-hg-demo/run-hg.lua
 Base on the vector constructed between 2 landmarks, calculate its norm direction and mark out these points(green points in the concept figure) as the possible contour points.
 The following are the concept figure:
 	<div align="center">
-	<img src="./images/HPE_.png" height="240px">
+	<img src="./images/HPE_landmarks.png" height="240px">
 	<img src="./images/HPE_extendPts_dir.png" height="240px">
 	<img src="./images/HPE_extendPts.png" height="240px">
 	<img src="./images/HPE_extendPts_result.png" height="240px">
