@@ -167,19 +167,19 @@ for k, file_id in enumerate(file_id_list):
 
 	## shoaw result of Delauny-triangular
 	# lines = LineCollection(edge_points,linewidths=(0.5, 1, 1.5, 2))
-	lines = LineCollection(edge_points)
-	plt.figure()
-	plt.title('Alpha=2.0 Delaunay triangulation')
-	plt.plot(extendPt[:,0], extendPt[:,1], 'o', hold=1, color='#f16824')
-	plt.gca().add_collection(lines)
+	# lines = LineCollection(edge_points)
+	# plt.figure()
+	# plt.title('Alpha=2.0 Delaunay triangulation')
+	# plt.plot(extendPt[:,0], extendPt[:,1], 'o', hold=1, color='#f16824')
+	# plt.gca().add_collection(lines)
 
-	## show result of connected contour
-	plt.figure()
-	plt.title("Alpha=2.0 Hull")
-	plt.gca().add_patch(PolygonPatch(cascaded_union(triangles), alpha=0.5))
-	plt.gca().autoscale(tight=False)
-	plt.plot(extendPt[:,0], extendPt[:,1], 'o', hold=1)
-	plt.show()
+	# ## show result of connected contour
+	# plt.figure()
+	# plt.title("Alpha=2.0 Hull")
+	# plt.gca().add_patch(PolygonPatch(cascaded_union(triangles), alpha=0.5))
+	# plt.gca().autoscale(tight=False)
+	# plt.plot(extendPt[:,0], extendPt[:,1], 'o', hold=1)
+	# plt.show()
 
 	#%%
 	# extract vertices of Polygon
@@ -222,7 +222,7 @@ for k, file_id in enumerate(file_id_list):
 	#%%
 
 	# use 4 points Bezier Curve
-	# inserts more points
+	# inserts more points between any other two points
 	Dense_BezierCurve = []
 	insertN = 30
 	for idx,ele in enumerate(ExtPts):
@@ -232,11 +232,12 @@ for k, file_id in enumerate(file_id_list):
 	            insert_x = int(ele[0]*((insertN-i)/insertN)+ExtPts[idx+1][0]*(i/insertN))
 	            insert_y = int(ele[1]*((insertN-i)/insertN)+ExtPts[idx+1][1]*(i/insertN))
 	            Dense_BezierCurve.append([insert_x,insert_y])
+	Dense_BezierCurve_draw = [[x] for x in Dense_BezierCurve]
 
 	# draw Bezier Curve Result      
 	BezierCurve = bezier.Curve(np.array(Dense_BezierCurve), degree = 4)
-	ax = BezierCurve.plot(num_pts=256)
-	plt.show()
+	# ax = BezierCurve.plot(num_pts=256)
+	# plt.show()
 
 	s_vals = np.linspace(0.0, 1.0, 100)
 	curve_pts = BezierCurve.evaluate_multi(s_vals)
@@ -263,6 +264,11 @@ for k, file_id in enumerate(file_id_list):
 	# img_AlphaShape = cv2.resize(img_AlphaShape,(newWid, newHei), interpolation = cv2.INTER_CUBIC)
 	# cv2.imshow('Alpha_Shape_modified_contour',img_AlphaShape)
 
+	# img_dense_bezier = img.copy()
+	# cv2.drawContours(img_dense_bezier, np.asarray(Dense_BezierCurve_draw), -1, (128,255,0), ptS)
+	# img_HPE_extend = cv2.resize(img_dense_bezier,(newWid, newHei), interpolation = cv2.INTER_CUBIC)
+	# cv2.imshow('Base_On_HPE',img_dense_bezier)
+
 	img_NatureCurve = img.copy()
 	cv2.drawContours(img_NatureCurve, np.asarray(curve_pts_draw), -1, (128,255,0), ptS)
 	img_NatureCurve = cv2.resize(img_NatureCurve,(newWid, newHei), interpolation = cv2.INTER_CUBIC)
@@ -273,11 +279,11 @@ for k, file_id in enumerate(file_id_list):
 		cv2.destroyAllWindows()	
 
 	## Save Output Images
-	outdir = './New_Output/'
-	if not os.path.exists(outdir):
-	    os.makedirs(outdir)
-	cv2.imwrite( outdir+file_id+"_"+"Base_On_HPE.jpg",img_HPE_extend);
-	cv2.imwrite( outdir+file_id+"_"+"Alpha_Shape_modified_contour.jpg",img_AlphaShape);
-	cv2.imwrite( outdir+file_id+"_"+"Bezier_modified_contour.jpg",img_NatureCurve);
+	# outdir = './New_Output/'
+	# if not os.path.exists(outdir):
+	#     os.makedirs(outdir)
+	# cv2.imwrite( outdir+file_id+"_"+"Base_On_HPE.jpg",img_HPE_extend);
+	# cv2.imwrite( outdir+file_id+"_"+"Alpha_Shape_modified_contour.jpg",img_AlphaShape);
+	# cv2.imwrite( outdir+file_id+"_"+"Bezier_modified_contour.jpg",img_NatureCurve);
 
 

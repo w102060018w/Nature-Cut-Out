@@ -129,7 +129,7 @@ Thanks to the clear tutorial by [Sean Gillies](https://sgillies.net/2012/10/13/t
 
 The whole concept is first build [delaunay triangulation](https://en.wikipedia.org/wiki/Delaunay_triangulation) base on [SciPy library](https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.spatial.Delaunay.html), and apply alpha-shape to remain those vetexes whose triangle's radius of the [circumcircle](http://www.mathopenref.com/trianglecircumcircle.html) is small enough. Finally we can extract all these points as the control points to build a smooth contour later on.
 
-The following pictures are the Result from step 2, Delaunay-triangle, Alpha-shape and the exterior points of the alpha shape respectively.
+The following pictures are the result from step 2, Delaunay-triangle, Alpha-shape and the exterior points of the alpha shape respectively.
 
 <div align="center">
 <img src="./images/demo_extendPts.jpg" height="280px">
@@ -141,5 +141,13 @@ The following pictures are the Result from step 2, Delaunay-triangle, Alpha-shap
 
 **4. Interpolating between key points and apply 4-point [Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_curve) to reconstruct the nature-cut-out.**
 
+First interpolate 30 points between two neighbor points, and use the bezier-function in python package to reconstruct a more smooth contour. 
 
+The following pictures are the result from step 3, the result after interpolation and the result after applying bezier curve shown in 100 points and 500 points, respectively.
 
+<div align="center">
+<img src="./images/demo_AlphaShpae_Image.jpg" height="280px">
+<img src="./images/demo_interpolation.png" height="280px">
+<img src="./images/demo_bezier100pts.jpg" height="280px">
+<img src="./images/demo_bezier500pts.png" height="280px">
+</div>
