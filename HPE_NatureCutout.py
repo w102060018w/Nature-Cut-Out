@@ -43,7 +43,6 @@ for k, file_id in enumerate(file_id_list):
 	landmark = mat['preds_2d']
 	x_posi = landmark[0]
 	y_posi = landmark[1]
-	maxDif_ydir = max(y_posi)-min(y_posi)
 	landmark_N = len(x_posi) # calculate the human pose landmark number (in this case should be 16 points)
 
 	# save each position as the value in Dict
@@ -159,10 +158,13 @@ for k, file_id in enumerate(file_id_list):
 	extendPt_Draw = [[x] for x in extendPt]
 	extendPt = np.array(extendPt)
 
+	maxDif_ydir = max(extendPt[:,1])-min(extendPt[:,1])
+	maxDif_xdir = max(extendPt[:,0])-min(extendPt[:,0])
+
 	## Start Connecting These extend-pts (using Bezier Curve)
 	# use Alpha shape to remain those really important pts.
 	# [Note]: with larger alpha-value, we can find more fitting contour (but can't be too large(i.e. threshold would be too small, and so no more triangles could be added into the contour set, which will cause error.))
-	alpha = 3.5/maxDif_ydir # why 3.5? -> it's just exp. result. [eg. 1200 pt in 'maximum-y-diff', we will use 0.003 as alpha-value]
+	alpha = 3.5/max(maxDif_ydir,maxDif_xdir) # why 3.5? -> it's just exp. result. [eg. 1200 pt in 'maximum-y-diff', we will use 0.003 as alpha-value]
 	triangles, edge_points = alpha_shape(extendPt, alpha)
 
 	## shoaw result of Delauny-triangular
@@ -279,7 +281,7 @@ for k, file_id in enumerate(file_id_list):
 		cv2.destroyAllWindows()	
 
 	# Save Output Images
-	outdir = './New_Output/'
+	outdir = './output/'
 	if not os.path.exists(outdir):
 	    os.makedirs(outdir)
 	cv2.imwrite( outdir+file_id+"_"+"Base_On_HPE.jpg",img_HPE_extend);
