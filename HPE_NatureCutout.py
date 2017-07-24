@@ -164,7 +164,7 @@ for k, file_id in enumerate(file_id_list):
 	## Start Connecting These extend-pts (using Bezier Curve)
 	# use Alpha shape to remain those really important pts.
 	# [Note]: with larger alpha-value, we can find more fitting contour (but can't be too large(i.e. threshold would be too small, and so no more triangles could be added into the contour set, which will cause error.))
-	alpha = 3.5/max(maxDif_ydir,maxDif_xdir) # why 3.5? -> it's just exp. result. [eg. 1200 pt in 'maximum-y-diff', we will use 0.003 as alpha-value]
+	alpha = 4.7/max(maxDif_ydir,maxDif_xdir) # why 3.5? -> it's just exp. result. [eg. 1200 pt in 'maximum-y-diff', we will use 0.003 as alpha-value]
 	triangles, edge_points = alpha_shape(extendPt, alpha)
 
 	## shoaw result of Delauny-triangular
