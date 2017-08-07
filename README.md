@@ -52,6 +52,26 @@ pip install the-lib-you-want-to-install
 Also, if you stuck in some problems when installing OpenCV with Python bindings, I will recommend following [this tutorial](http://www.pyimagesearch.com/2016/12/05/macos-install-opencv-3-and-python-3-5/) written by [Adrian Rosebrock](http://www.pyimagesearch.com/author/adrian/).
 
 ## Usage
+### 1. Easy Way (preview using Jupyter Notebook)
+First clone the current repo
+```
+git clone https://github.com/w102060018w/Nature-Cut-Out.git
+```
+
+Follow the github repository for installing caffe-opencv-CUDA8.0-docker in **[here](https://github.com/w102060018w/caffe-opencv-cuda8.0-docker)**
+
+After starting the Container using Docker, go into the container, switch to the directory and we can run the code.
+```
+cd /auto-cutout/
+
+jupyter-notebook --ip=0.0.0.0 --allow-root
+
+```
+
+On the pop out browser, go to demo_.ipynub and run all cells, you can see the result in the very bottom.
+
+
+### 2. Hard Way
 #### Basic usage:
 ```
 python HPE_NatureCutout.py
@@ -151,3 +171,11 @@ The following pictures are the result from step 3, the result after interpolatio
 <img src="./images/demo_bezier100pts.jpg" height="260px">
 <img src="./images/demo_bezier500pts.png" height="260px">
 </div>
+
+## Acknowledgments
+Thanks to the amazing work of human pose estimation model:
+* [3D Shape Estimation via Convex Optimization](https://fling.seas.upenn.edu/~xiaowz/dynamic/wordpress/shapeconvex/) 
+* [Realtime Multi-Person Pose Estimation](https://github.com/w102060018w/Realtime_Multi-Person_Pose_Estimation)
+Thanks to the nice tutorial of alpha shape:
+* [Sean Gillies](https://sgillies.net/2012/10/13/the-fading-shape-of-alpha.html)
+* [KEVIN DWYER](http://blog.thehumangeo.com/2014/05/12/drawing-boundaries-in-python/)
