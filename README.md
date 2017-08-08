@@ -54,7 +54,7 @@ pip install the-lib-you-want-to-install
 Also, if you stuck in some problems when installing OpenCV with Python bindings, I will recommend following [this tutorial](http://www.pyimagesearch.com/2016/12/05/macos-install-opencv-3-and-python-3-5/) written by [Adrian Rosebrock](http://www.pyimagesearch.com/author/adrian/).
 
 ## Usage
-### 1. Easy Way (preview using Jupyter Notebook)
+### 1. Easy Way (preview on Jupyter Notebook)
 First clone the current repo and download the model :
 ```
 git clone https://github.com/w102060018w/Nature-Cut-Out.git
@@ -178,9 +178,9 @@ The following pictures are the result from step 3, the result after interpolatio
 </div>
 
 ## Acknowledgments
-#####Thanks to the amazing work of human pose estimation model:
+##### Thanks to the amazing work of human pose estimation model:
 * [3D Shape Estimation via Convex Optimization](https://fling.seas.upenn.edu/~xiaowz/dynamic/wordpress/shapeconvex/) 
 * [Realtime Multi-Person Pose Estimation](https://github.com/w102060018w/Realtime_Multi-Person_Pose_Estimation)
-#####Thanks to the nice tutorial of alpha shape:
+##### Thanks to the nice tutorial of alpha shape:
 * [Sean Gillies](https://sgillies.net/2012/10/13/the-fading-shape-of-alpha.html)
 * [KEVIN DWYER](http://blog.thehumangeo.com/2014/05/12/drawing-boundaries-in-python/)
