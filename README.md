@@ -59,7 +59,6 @@ git clone https://github.com/w102060018w/Nature-Cut-Out.git
 ```
 
 (Required)Follow the github repository for installing caffe-opencv-CUDA8.0-docker in **[here](https://github.com/w102060018w/caffe-opencv-cuda8.0-docker)**.
-Follow the github repository for installing caffe-opencv-CUDA8.0-docker in **[here](https://github.com/w102060018w/caffe-opencv-cuda8.0-docker)**.
 
 After starting the Container using Docker, go into the container, switch to the directory and we can run the code.
 ```
@@ -69,10 +68,7 @@ jupyter-notebook --ip=0.0.0.0 --allow-root
 
 ```
 
-On the pop out Jupyter Notebook browser, go to the /testing/python directory and select **demo_testing.ipynb** and run all cells, you can see the result in the very bottom.
-
-On the pop out browser, go to the **demo_testing.ipynb** and run all cells, you can see the result in the very bottom.
-
+On the pop out Jupyter Notebook browser, go to the **/testing/python** directory and select **demo_testing.ipynb** and run all cells, you can see the result in the very bottom.
 
 
 ### 2. Hard Way
