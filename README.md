@@ -53,9 +53,12 @@ Also, if you stuck in some problems when installing OpenCV with Python bindings,
 
 ## Usage
 ### 1. Easy Way (preview using Jupyter Notebook)
-First clone the current repo :
+First clone the current repo and download the model :
 ```
 git clone https://github.com/w102060018w/Nature-Cut-Out.git
+cd Nature-Cut-Out
+wget -nc --directory-prefix=./model/_trained_COCO/ 	http://posefs1.perception.cs.cmu.edu/Users/ZheCao/pose_iter_440000.caffemodel
+
 ```
 
 (Required)Follow the github repository for installing caffe-opencv-CUDA8.0-docker in **[here](https://github.com/w102060018w/caffe-opencv-cuda8.0-docker)**.
