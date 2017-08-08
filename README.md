@@ -1,6 +1,8 @@
 # Nature-Cut-Out
 
 This is the python implementation of cutting out a nature contour aroung human body.
+Big thanks to the Human Pose Estimation work done by [Zhe Cao](http://www.andrew.cmu.edu/user/zhecao), [Tomas Simon](http://www.cs.cmu.edu/~tsimon/), [Shih-En Wei](https://scholar.google.com/citations?user=sFQD3k4AAAAJ&hl=en), [Yaser Sheikh](http://www.cs.cmu.edu/~yaser/).
+https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation
 
 ## Result
 
@@ -176,9 +178,9 @@ The following pictures are the result from step 3, the result after interpolatio
 </div>
 
 ## Acknowledgments
-Thanks to the amazing work of human pose estimation model:
+#####Thanks to the amazing work of human pose estimation model:
 * [3D Shape Estimation via Convex Optimization](https://fling.seas.upenn.edu/~xiaowz/dynamic/wordpress/shapeconvex/) 
-* [Realtime Multi-Person Pose Estimation](https://github.com/w102060018w/Realtime_Multi-Person_Pose_Estimation)<br />
-Thanks to the nice tutorial of alpha shape:
+* [Realtime Multi-Person Pose Estimation](https://github.com/w102060018w/Realtime_Multi-Person_Pose_Estimation)
+#####Thanks to the nice tutorial of alpha shape:
 * [Sean Gillies](https://sgillies.net/2012/10/13/the-fading-shape-of-alpha.html)
 * [KEVIN DWYER](http://blog.thehumangeo.com/2014/05/12/drawing-boundaries-in-python/)

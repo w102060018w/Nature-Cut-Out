@@ -1,3 +1,6 @@
+# Author: 
+# https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation
+
 from configobj import ConfigObj
 import numpy as np
 

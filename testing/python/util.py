@@ -1,3 +1,6 @@
+# Author: 
+# https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation
+
 import numpy as np
 from cStringIO import StringIO
 import PIL.Image
