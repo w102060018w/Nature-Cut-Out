@@ -60,7 +60,6 @@ First clone the current repo and download the model :
 git clone https://github.com/w102060018w/Nature-Cut-Out.git
 cd Nature-Cut-Out
 wget -nc --directory-prefix=./model/_trained_COCO/ http://posefs1.perception.cs.cmu.edu/Users/ZheCao/pose_iter_440000.caffemodel
-
 ```
 
 (Required)Follow the github repository for installing caffe-opencv-CUDA8.0-docker in **[here](https://github.com/w102060018w/caffe-opencv-cuda8.0-docker)**.
@@ -68,12 +67,10 @@ wget -nc --directory-prefix=./model/_trained_COCO/ http://posefs1.perception.cs.
 After starting the Container using Docker, go into the container, switch to the directory and we can run the code.
 ```
 cd /auto-cutout/
-
 jupyter-notebook --ip=0.0.0.0 --allow-root
-
 ```
 
-On the pop out Jupyter Notebook browser, go to the **/testing/python** directory and select **demo_testing.ipynb** and run all cells, you can see the result in the very bottom.
+On the pop out Jupyter Notebook browser, go to the **/testing/python** directory and select **Demo_clean_version.ipynb** and run all cells, you can see the result in the very bottom.
 
 
 ### 2. Hard Way

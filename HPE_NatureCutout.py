@@ -281,10 +281,7 @@ for k, file_id in enumerate(file_id_list):
 		cv2.destroyAllWindows()	
 
 	# Save Output Images
-	outdir = './output/'
-	if not os.path.exists(outdir):
-	    os.makedirs(outdir)
-	cv2.imwrite( outdir+file_id+"_"+"Base_On_HPE.jpg",img_HPE_extend);
+	 
 	cv2.imwrite( outdir+file_id+"_"+"Alpha_Shape_modified_contour.jpg",img_AlphaShape);
 	cv2.imwrite( outdir+file_id+"_"+"Bezier_modified_contour.jpg",img_NatureCurve);
 
