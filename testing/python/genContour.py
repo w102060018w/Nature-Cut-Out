@@ -403,7 +403,7 @@ def Construct_Contour(oriImg, param, model, net):
     #print("--- %s seconds for Interpolat_pts_t ---" % Interpolat_pts_t)
     #print("--- %s seconds for reconstruct_bezier_t ---" % reconstruct_bezier_t)
     
-    return img_NatureCurve
+    return img_NatureCurve,points,points_draw
         
 if __name__ == "__main__":
     
