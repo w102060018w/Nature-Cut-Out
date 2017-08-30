@@ -29,6 +29,15 @@ I've tested on several images and in most cases the results work pretty well.
 <img src="./output/9_Bezier_modified_contour.jpg" height="280px">
 </div>
 
+The result without background(you could find these results in [here](./output) or [this directory](./demo/python/rm_bg_output))
+
+<div align="center">
+<img src="./demo/python/rm_bg_output/wani15_rm_bg.png" height="280px">
+<img src="./demo/python/rm_bg_output/wani16_rm_bg.png" height="280px">
+<img src="./demo/python/rm_bg_output/wani17_rm_bg.png" height="280px">
+<img src="./images/GIF_nobg.gif" height="280px">
+</div>
+
 ## Setup
 
 Recommended running environment:
