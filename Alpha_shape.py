@@ -22,10 +22,6 @@ mpl.use('TkAgg')
 import matplotlib.pyplot as plt
 
 
-
-#import cv2
-
-
 def add_edge(edges,edge_points, coords, i, j):
     """
     Add a line between the i-th and j-th points,
@@ -34,17 +30,13 @@ def add_edge(edges,edge_points, coords, i, j):
     if (i, j) in edges or (j, i) in edges:
         # already added
         return
-    
-#    print((i,j))
+
     edges.add( (i, j) )
     edge_points.append(coords[ [i, j] ])
-    
-#    print(edges)
-#    print(edge_points)
+
 
 # loop over triangles:
 # ia, ib, ic = indices of corner points of the triangle
-
 def alpha_shape(points,alpha):
 #    circum_lst = []
     tri = Delaunay(points)
@@ -71,10 +63,6 @@ def alpha_shape(points,alpha):
         circum_r = a*b*c/(4.0*area)
     
         # Here's the radius filter.
-    #    circum_lst.append(circum_r)
-    #    print('val = ',circum_r)
-    #    print('limit = ',1.0/alpha)
-#        
         if circum_r < 1.0/alpha: 
             add_edge(edges,edge_points, points, ia, ib)
             add_edge(edges,edge_points, points, ib, ic)

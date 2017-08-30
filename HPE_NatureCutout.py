@@ -1,5 +1,5 @@
 '''
-Author: Winnie Hong
+Author: Huiting Hong(Winnie)
 Date: 07.13.2017 16:36
 Model of human pose estimaton : Sparseness Meets Deepness (CVPR2016) 
 Goal : Try to see if human pose can cut out in a pretty nature way(but not really close to the edge).
@@ -53,7 +53,7 @@ for k, file_id in enumerate(file_id_list):
 		posi_Dict[posi_name[i]] = np.array([int(x_posi[i]),int(y_posi[i])])
 		idx_Dict[posi_name[i]] = i
 
-	# add special landmark of 'stom' to make it more easy on finding contour points between stomach
+	# add special landmark of 'stom' to make it more easy on finding contour points between Thrx and Pelvis.
 	stom_x = (posi_Dict['Thrx'][0]+posi_Dict['Pelv'][0])/2 
 	stom_y = (posi_Dict['Thrx'][1]+posi_Dict['Pelv'][1])/2
 	posi_Dict['Stom'] = [stom_x,stom_y]
@@ -62,7 +62,7 @@ for k, file_id in enumerate(file_id_list):
 		dataframe.set_value(str1,str2,1)
 		dataframe.set_value(str2,str1,1)
 
-	## Build Connection Matrix (but actually only need the info in the upper-triangle)
+	## Build Connection Matrix (but actually only need the info. in the upper-triangle)
 	columns = posi_name
 	index = posi_name
 	df = pd.DataFrame(0,index = index, columns = columns)
@@ -94,7 +94,7 @@ for k, file_id in enumerate(file_id_list):
 				vecT = col.index[j]
 				vec_Dict[vecH+'_'+vecT] = posi_Dict[vecT]-posi_Dict[vecH]
 
-				# normalization
+				# vertor normalization
 				vec_Dict[vecH+'_'+vecT] = vec_Dict[vecH+'_'+vecT]/np.linalg.norm(vec_Dict[vecH+'_'+vecT])
 		idx += 1
 
@@ -104,31 +104,27 @@ for k, file_id in enumerate(file_id_list):
 
 	# build clear relation between vector and its considered-point 
 	# (i.e. a vector is built from 2 points(considered-points), we have to make it clear which point is we would like to extend out base on this vector)
+	# (The 'key' is the vector-name define on the above, and its corresponding 'value' is the points we would like to extend base on the vector.)
 	VecExtenPt_Dict = {}
 	VecExtenPt_Dict['RAnk_RKne'] = ['RKne','RAnk']
-	# VecExtenPt_Dict['RKne_RHip'] = ['RKne','RHip']
 	VecExtenPt_Dict['RKne_RHip'] = ['RHip']
-	# VecExtenPt_Dict['RHip_Pelv'] = 'RHip'
-	# VecExtenPt_Dict['LHip_LKne'] = ['LKne','LHip']
 	VecExtenPt_Dict['LHip_LKne'] = ['LHip']
-	# VecExtenPt_Dict['LHip_Pelv'] = 'LHip'
 	VecExtenPt_Dict['LKne_LAnk'] = ['LKne','LAnk']
 	VecExtenPt_Dict['Pelv_Thrx'] = ['Stom']
 	VecExtenPt_Dict['Thrx_Neck'] = ['Neck']
-	# VecExtenPt_Dict['Thrx_RSho'] = ['RSho']
-	# VecExtenPt_Dict['Thrx_LSho'] = ['LSho']
 	VecExtenPt_Dict['Neck_Head'] = ['Head']
 	VecExtenPt_Dict['RWri_RElb'] = ['RElb','RWri']
 	VecExtenPt_Dict['RElb_RSho'] = ['RSho']
 	VecExtenPt_Dict['LSho_LElb'] = ['LSho']
 	VecExtenPt_Dict['LElb_LWri'] = ['LElb','LWri']
 
-	# calculate extended-points regardless of its order
+
+	# calculate extended-points regardless of their order(clock-wise or counter-clock-wise)
 	extendPt = []
-	extendPt_Draw = []
+	extendPt_Draw = [] # simply for showing result purpose.
 	vtxs = ['Head','LWri','RWri','LAnk','RAnk'] # special cases on the 5 vertex pts
-	vtxs_WidFactor = [0.7]+[1.5]*4 # special 
-	vtxs_PairPts = ['Neck','LElb','RElb','LKne','RKne']
+	vtxs_WidFactor = [0.7]+[1.5]*4 # special factor for each vertex: [0.7, 1.5, 1.5, 1.5, 1.5]
+	vtxs_PairPts = ['Neck','LElb','RElb','LKne','RKne'] # corresponding pts of vtxs for constructing the vector.
 
 	for key, value in vec_Dict.items():
 		# eg. key = RAnk_RKne; VecExtenPt_Dict['RAnk_RKne'] = 'RAnk'; posi_Dict['RAnk'] will get the posi.
@@ -139,22 +135,24 @@ for k, file_id in enumerate(file_id_list):
 				# special case on 5 extending pts(head,LWrist,RWrist,LAnkle,RAnkle), 
 				'''
 				Now I recalculate again the vector of these special vertex, since I am not sure 
-				if the direction of previous calculated vector is what I want(have to look at the vec_Dict key name though..), 
-				if I need choose on testing on its direction and then adjust it, it would be too non-intuitive.
+				if the direction of previous calculated vector is what I want(egs. Head->Neck and Neck->Head are diff. vector), 
+				if I choose to test on the vector's direction and then decide whether to reverse or not, it would be too non-intuitive.
 				'''
+				# On vertexes we only need one-direction extending points
 				for idx, vertex in enumerate(vtxs):
 					if ele == vertex:
 						pair = vtxs_PairPts[idx]
 						slope = (posi_Dict[vertex] - posi_Dict[pair])/np.linalg.norm(posi_Dict[vertex] - posi_Dict[pair])
-						extendPt.append([int(x) for x in (extendpt+width*slope*vtxs_WidFactor[idx])]) # why multiply by 1.5 -> simply the exp. result, so it will look more nature.
+						extendPt.append([int(x) for x in (extendpt + width*slope*vtxs_WidFactor[idx])]) # why multiply by 1.5 -> simply the exp. result, so it will look more nature.
 				
+				# On Non-vertexes we need bi-direction extending points
 				norm = np.array([value[1],-value[0]])
-				extendPt.append([int(x) for x in (extendpt+width*norm)])
-				extendPt.append([int(x) for x in (extendpt+width*(-norm))])
+				extendPt.append([int(x) for x in (extendpt + width*norm)])
+				extendPt.append([int(x) for x in (extendpt + width*(-norm))])
 		except KeyError:
 			continue
 
-	# for drawing purpose
+	# for showing-result purpose
 	extendPt_Draw = [[x] for x in extendPt]
 	extendPt = np.array(extendPt)
 
@@ -175,7 +173,7 @@ for k, file_id in enumerate(file_id_list):
 	# plt.plot(extendPt[:,0], extendPt[:,1], 'o', hold=1, color='#f16824')
 	# plt.gca().add_collection(lines)
 
-	# ## show result of connected contour
+	## show result of connected contour
 	# plt.figure()
 	# plt.title("Alpha=2.0 Hull")
 	# plt.gca().add_patch(PolygonPatch(cascaded_union(triangles), alpha=0.5))
@@ -183,8 +181,8 @@ for k, file_id in enumerate(file_id_list):
 	# plt.plot(extendPt[:,0], extendPt[:,1], 'o', hold=1)
 	# plt.show()
 
-	#%%
-	# extract vertices of Polygon
+
+	## extract vertices of Polygon
 	ExtPts_x, ExtPts_y = cascaded_union(triangles).exterior.coords.xy #extract these control points from alpha-shape-result
 	ExtPts = []
 	for i in range(len(ExtPts_x)):
@@ -221,10 +219,10 @@ for k, file_id in enumerate(file_id_list):
 	# check if it's in clock wise or counter clockwise
 	# CheckInOrderOrNot(ExtPts)
 
-	#%%
 
-	# use 4 points Bezier Curve
-	# inserts more points between any other two points
+
+	## use 4 points Bezier Curve
+	## inserts more points between any other two points, so the reconstruct bezier curve will be more smooth.
 	Dense_BezierCurve = []
 	insertN = 30
 	for idx,ele in enumerate(ExtPts):
@@ -248,8 +246,8 @@ for k, file_id in enumerate(file_id_list):
 
 
 
-	## Show the result
-	# in case the image is too big to show on the screen.
+	## Show the Nature-Cut-Out result
+	# in case the image is too big to show on the screen, do resizing.
 	newHei = 600
 	ratio = newHei/hei
 	newWid = int(wid*ratio)
