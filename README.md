@@ -144,7 +144,7 @@ Big thanks to the two great works of Human Pose Estimation, which are [Sparsenes
 <img src="./images/demo_HPE_caffe_version.png" height="280px">
 <img src="./images/demo_HPE.png" height="280px">
 </div></br>
-which on the left hand side is the intermodiate output of Option1 and Option2 on the right hand side.</br>
+which on the left hand side is the intermodiate output of Option1 and Option2 on the right hand side.</br></br>
 
 **2. Base on 2D landmarks, calculate those possible contour points.**
 
