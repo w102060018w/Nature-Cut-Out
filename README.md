@@ -27,9 +27,9 @@ I've tested on several images and in most cases the results work pretty well.
 <img src="./output/23_Bezier_modified_contour.jpg" height="280px">
 <img src="./input/testImg9.jpg" height="280px">
 <img src="./output/9_Bezier_modified_contour.jpg" height="280px">
-</div>
+</div></br>
 
-The result without background(you could find these results in [here](./output) or [this directory](./demo/python/rm_bg_output))
+Also, we can get the result without background(you could find above results in [here](./output) and below results in [here](./demo/python/rm_bg_output))
 
 <div align="center">
 <img src="./demo/python/rm_bg_output/wani15_rm_bg.png" height="280px">
@@ -50,11 +50,11 @@ Library:
 * Shapely 1.5.17
 * math
 * Numpy 1.13.1
-* Bezier
 
 Optional library:
 * descartes
 * matplotlib
+* Bezier(required for _Usage in Hard Way_)
 
 Using pip to install all these library would be recommended:
 ```
@@ -63,31 +63,42 @@ pip install the-lib-you-want-to-install
 Also, if you stuck in some problems when installing OpenCV with Python bindings, I will recommend following [this tutorial](http://www.pyimagesearch.com/2016/12/05/macos-install-opencv-3-and-python-3-5/) written by [Adrian Rosebrock](http://www.pyimagesearch.com/author/adrian/).
 
 ## Usage
-### 1. Easy Way (preview on Jupyter Notebook)
-First clone the current repo and download the model :
+### 1. Docker-container + Jupyter Notebook (easy to test on your own images)
+#### Basic usage:
+Put the images you want to test in the ./input/</br>
+First follow **[this](https://github.com/w102060018w/caffe-opencv-cuda8.0-docker)**. github repository for installing caffe-opencv-CUDA8.0-docker and run the container. 
+
+Then clone the current repo and download the pre-train model :
 ```
 git clone https://github.com/w102060018w/Nature-Cut-Out.git
 cd Nature-Cut-Out
 wget -nc --directory-prefix=./model/_trained_COCO/ http://posefs1.perception.cs.cmu.edu/Users/ZheCao/pose_iter_440000.caffemodel
 ```
 
-(Required)Follow the github repository for installing caffe-opencv-CUDA8.0-docker in **[here](https://github.com/w102060018w/caffe-opencv-cuda8.0-docker)**.
-
-After starting the Container using Docker, go into the container, switch to the directory and we can run the code.
+After successfully starting the Container using Docker, go into the container, switch to the folder we have already shared inside the container.
 ```
 cd /auto-cutout/
 jupyter-notebook --ip=0.0.0.0 --allow-root
 ```
 
-On the pop out Jupyter Notebook browser, go to the **/testing/python** directory and select **Demo_clean_version.ipynb** and run all cells, you can see the result in the very bottom.
+On the pop out Jupyter Notebook browser(if you run the docker on the GCP, please follow [this tutorial](https://paper.dropbox.com/doc/Running-Jupyter-Notebook-on-the-GCP-SoWlQwj2xpgaR9k2AhH3Z) to connect local host to the running port on the GCP), go to the **/demo/python** directory and </br> 
+select **Demo_clean_version.ipynb** to run all cells, you can see the result of Nature-Cut-Out result with thick contour and no background.
+select **Demo_testing.ipynb** to run all cells, you can see the result with thinner contour, like the result shown above.
+select **Multi-frame-demo.ipynb** to run all cells, you can see all the results combined into the gif shown above.
 
+#### Output:
+<div align="center">
+<img src="./output/23_Bezier_modified_contour.jpg" height="280px">
+<img src="./demo/python/rm_bg_output/wani12_rm_bg.png" height="280px">
+</div>
 
-### 2. Hard Way
+### 2. Torch + matlab (hard to test on your own images)
 #### Basic usage:
+can only used on the pre-processed images, if you want to run on your own images, please refer to the _Run on your own images_ part:
 ```
 python HPE_NatureCutout.py
 ```
-It will run 27 images in the **./input** folder at one time, and show an output image once at a time, press 'esc' to see next output image.
+It will run 27 pre-processed images in the **./input** folder at one time, and show an output image once at a time, press 'esc' to see next output image.
 
 #### Output:
 
@@ -107,7 +118,10 @@ Output will all be saved to the **./New_Output** folder. Each input will generat
 
 #### Run on your own images:
 
-Please first go to [this website](https://fling.seas.upenn.edu/~xiaowz/dynamic/wordpress/shapeconvex/) and scroll down to the bottom to download the matlab code on constructing 2D and 3D human pose. Save the 2D human pose result as the **.mat** file:
+Please first go to [this website](https://fling.seas.upenn.edu/~xiaowz/dynamic/wordpress/shapeconvex/) and scroll down to the bottom to download the matlab code on constructing 2D and 3D human pose. Generate the heat-map using torch first and then save the 2D human pose result as the **.mat** file:
+```
+th ./pose-hg-demo/run-hg.lua
+```
 ```
 filename = 'testImg21'
 fname = strcat('./pred_2d',filename(8:end));
