@@ -136,20 +136,15 @@ The whole process could be divided into the following process:
 
 **1. First using 2D human pose estimation to get the landmarks of a human body.**
 
-Big thanks to the great work done by X. Zhou, M. Zhu, S. Leonardos, K. Daniilidis., Download the code from the [website](https://fling.seas.upenn.edu/~xiaowz/dynamic/wordpress/shapeconvex/).
-* generate heatmap in advance:
+Big thanks to the two great works of Human Pose Estimation, which are [Sparseness Meets Deepness](https://arxiv.org/abs/1511.09439) done by X. Zhou, M. Zhu, S. Leonardos, K. Daniilidis., Download the code from the [website](https://fling.seas.upenn.edu/~xiaowz/dynamic/wordpress/shapeconvex/). and [Realtime Multi-Person 2D Pose Estimation](https://arxiv.org/abs/1611.08050) done by [Zhe Cao](http://www.andrew.cmu.edu/user/zhecao), [Tomas Simon](http://www.cs.cmu.edu/~tsimon/), [Shih-En Wei](https://scholar.google.com/citations?user=sFQD3k4AAAAJ&hl=en), [Yaser Sheikh](http://www.cs.cmu.edu/~yaser/).
 
-```
-th ./pose-hg-demo/run-hg.lua
-```
-
-* run the matlab code to get the 16 landmarks(shown in right most image):
+* Generate landmarks of input images:
 
 <div align="center">
-<img src="./images/demoimg.jpg" height="280px">
-<img src="./images/heatmap.png" height="280px">
+<img src="./images/demo_HPE_caffe_version.png" height="280px">
 <img src="./images/demo_HPE.png" height="280px">
-</div>
+</div></br>
+which on the left hand side is the intermodiate output of Option1 and Option2 on the right hand side.</br>
 
 **2. Base on 2D landmarks, calculate those possible contour points.**
 
@@ -166,7 +161,7 @@ The result on the above example image would be just like:
 	<div align="center">
 	<img src="./images/demo_HPE.png" height="320px">
 	<img src="./images/demo_extendPts.jpg" height="320px">
-	</div>
+	</div></br>
 
 **3. Apply [alpha shape](https://en.wikipedia.org/wiki/Alpha_shape) to find out those key points which will contribute to build the contour.**
 
@@ -181,7 +176,7 @@ The following pictures are the result from step 2, Delaunay-triangle, Alpha-shap
 <img src="./images/demo_tri.png" height="280px">
 <img src="./images/demo_AlphaShape.png" height="280px">
 <img src="./images/demo_AlphaShpae_Image.jpg" height="280px">
-</div>
+</div></br>
 
 
 **4. Interpolating between key points and apply 4-point [Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_curve) to reconstruct the nature-cut-out.**
