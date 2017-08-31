@@ -63,10 +63,10 @@ pip install the-lib-you-want-to-install
 Also, if you stuck in some problems when installing OpenCV with Python bindings, I will recommend following [this tutorial](http://www.pyimagesearch.com/2016/12/05/macos-install-opencv-3-and-python-3-5/) written by [Adrian Rosebrock](http://www.pyimagesearch.com/author/adrian/).
 
 ## Usage
-### 1. Docker-container + Jupyter Notebook (easy to test on your own images)
+### Option-1. Docker-container + Jupyter Notebook (easy to test on your own images)
 #### Basic usage:
-Put the images you want to test in the ./input/</br>
-First follow **[this](https://github.com/w102060018w/caffe-opencv-cuda8.0-docker)**. github repository for installing caffe-opencv-CUDA8.0-docker and run the container. 
+First put the images you want to test in the ./input/</br>
+Second, follow **[this github repository](https://github.com/w102060018w/caffe-opencv-cuda8.0-docker)** for installing caffe-opencv-CUDA8.0-docker and run the container. 
 
 Then clone the current repo and download the pre-train model :
 ```
@@ -82,9 +82,9 @@ jupyter-notebook --ip=0.0.0.0 --allow-root
 ```
 
 On the pop out Jupyter Notebook browser(if you run the docker on the GCP, please follow [this tutorial](https://paper.dropbox.com/doc/Running-Jupyter-Notebook-on-the-GCP-SoWlQwj2xpgaR9k2AhH3Z) to connect local host to the running port on the GCP), go to the **/demo/python** directory and </br> 
-select **Demo_clean_version.ipynb** to run all cells, you can see the result of Nature-Cut-Out result with thick contour and no background.
-select **Demo_testing.ipynb** to run all cells, you can see the result with thinner contour, like the result shown above.
-select **Multi-frame-demo.ipynb** to run all cells, you can see all the results combined into the gif shown above.
+select **Demo_clean_version.ipynb** to run all cells, you can see the result of Nature-Cut-Out result with thick contour and no background.</br>
+select **Demo_testing.ipynb** to run all cells, you can see the result with thinner contour, like the result shown above.</br>
+select **Multi-frame-demo.ipynb** to run all cells, you can see all the results combined into the gif shown above.</br>
 
 #### Output:
 <div align="center">
@@ -92,9 +92,9 @@ select **Multi-frame-demo.ipynb** to run all cells, you can see all the results 
 <img src="./demo/python/rm_bg_output/wani12_rm_bg.png" height="280px">
 </div>
 
-### 2. Torch + matlab (hard to test on your own images)
+### Option-2. Torch + matlab (hard to test on your own images)
 #### Basic usage:
-can only used on the pre-processed images, if you want to run on your own images, please refer to the _Run on your own images_ part:
+can only used on the pre-processed images, if you want to run on your own images, please refer to the _Run-on-your-own-images_ part:
 ```
 python HPE_NatureCutout.py
 ```
