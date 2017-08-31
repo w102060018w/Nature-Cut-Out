@@ -63,7 +63,7 @@ pip install the-lib-you-want-to-install
 Also, if you stuck in some problems when installing OpenCV with Python bindings, I will recommend following [this tutorial](http://www.pyimagesearch.com/2016/12/05/macos-install-opencv-3-and-python-3-5/) written by [Adrian Rosebrock](http://www.pyimagesearch.com/author/adrian/).
 
 ## Usage
-### Option1 : Docker-container + Jupyter Notebook (easy to test on your own images)
+### Option1 : Modified caffe-image using Docker + Jupyter Notebook (easy to test on your own images)
 #### Setup:
 First put the images you want to test in the ./input/</br>
 Second, follow **[this github repository](https://github.com/w102060018w/caffe-opencv-cuda8.0-docker)** for installing caffe-opencv-CUDA8.0-docker and run the container. 
