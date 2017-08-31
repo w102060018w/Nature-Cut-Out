@@ -65,7 +65,7 @@ Also, if you stuck in some problems when installing OpenCV with Python bindings,
 ## Usage
 ### Option1 : Caffe + Python (easy to test on your own images)
 #### Setup:
-(Use modified caffe-image running on Docker + preview in Jupyter Notebook)
+(Use modified caffe-image running on Docker + preview in Jupyter Notebook)</br></br>
 First put the images you want to test in the ./input/</br>
 Second, follow **[this github repository](https://github.com/w102060018w/caffe-opencv-cuda8.0-docker)** for installing caffe-opencv-CUDA8.0-docker and run the container. 
 
