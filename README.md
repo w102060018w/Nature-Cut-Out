@@ -84,7 +84,7 @@ jupyter-notebook --ip=0.0.0.0 --allow-root
 #### Run the code:
 On the pop out Jupyter Notebook browser(if you run the docker on the GCP, please follow [this tutorial](https://paper.dropbox.com/doc/Running-Jupyter-Notebook-on-the-GCP-SoWlQwj2xpgaR9k2AhH3Z) to connect local host to the running port on the GCP), go to the **/demo/python** directory and </br> 
 select [Demo_clean_version.ipynb](./demo/python/Demo_clean_version.ipynb) to run all cells, you can see the result of Nature-Cut-Out result with thick contour and no background.</br>
-select [demo_testing.ipynb](./demo/python/Demo_testing.ipynb) to run all cells, you can see the result with thinner contour, like the result shown above.</br>
+select [demo_testing.ipynb](./demo/python/demo_testing.ipynb) to run all cells, you can see the result with thinner contour, like the result shown above.</br>
 select [Multi-frame-demo.ipynb](./demo/python/Multi-frame-demo.ipynb) to run all cells, you can see all the results combined into the gif shown above.</br>
 
 #### Output:
